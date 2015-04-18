@@ -27,7 +27,7 @@ compruebaPackage("plyr")
 if (!file.exists("data")) {dir.create("data")}
 
 # Check if data file exits; if not download the and unzip file 
-if (!file.exists("./dataset.zip")) {
+if (!file.exists("./data/dataset.zip") || !file.exists(".data/UCI HAR Dataset")) {
   # file URL, destination zip file, destination data files
   URLArchivo <- "http://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
   ArchivoDestino <- "./data/dataset.zip"
@@ -38,21 +38,21 @@ if (!file.exists("./dataset.zip")) {
   
   # Unzip the data file
   unzip(ArchivoDestino, exdir = "./data/", overwrite = TRUE,)
-  
-  # Data set for test
-  DSTest <- "./data/UCI HAR Dataset/test/X_test.txt"
-  DSTestLabel <- "./data/UCI HAR Dataset/test/Y_test.txt"
-  DSTestSubject <- "./data/UCI HAR Dataset/test/subject_test.txt"
-  
-  # Data set for training
-  DSTraining <- "./data/UCI HAR Dataset/train/X_train.txt"
-  DSTrainingLabel <- "./data/UCI HAR Dataset/train/Y_train.txt"
-  DSTrainingSubject <- "./data/UCI HAR Dataset/train/subject_train.txt"
-  
-  # Data set activity labels and features
-  DSActivityLabel <- "./data/UCI HAR Dataset/activity_labels.txt"
-  DSFeatures <- "./data/UCI HAR Dataset/features.txt"
 }
+
+# Data set for test
+DSTest <- "./data/UCI HAR Dataset/test/X_test.txt"
+DSTestLabel <- "./data/UCI HAR Dataset/test/Y_test.txt"
+DSTestSubject <- "./data/UCI HAR Dataset/test/subject_test.txt"
+
+# Data set for training
+DSTraining <- "./data/UCI HAR Dataset/train/X_train.txt"
+DSTrainingLabel <- "./data/UCI HAR Dataset/train/Y_train.txt"
+DSTrainingSubject <- "./data/UCI HAR Dataset/train/subject_train.txt"
+
+# Data set activity labels and features
+DSActivityLabel <- "./data/UCI HAR Dataset/activity_labels.txt"
+DSFeatures <- "./data/UCI HAR Dataset/features.txt"
 
 # Read Test
 DSTest <- read.table(DSTest)
@@ -70,6 +70,7 @@ DSFeatures <- read.table(DSFeatures)
 
 # clean up Features and Label
 DSFeatures <- gsub("\\()", "", DSFeatures$V2)
+
 DSActivityLabel <- DSActivityLabel$V2
 DSActivityLabel <- tolower(DSActivityLabel)
 DSActivityLabel <- sub("_", " ", DSActivityLabel)
