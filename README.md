@@ -68,4 +68,4 @@ The numeric labels for activities were converted to descriptive ones using the m
 
 4) Appropriately labels the data set with descriptive activity names.Then an independent tidy data frame was created using the aggretate function with the average of each variable for each activity and each subject. As a result of aggregating, new columns were made making some of the old ones unneccessary. The old ones were deleted and the new ones were renamed.
 
-5) Creates a second, independent tidy data set with the average of each variable for each activity and each subject. The tidy data frame was written to a file called "analysis.txt" in the working directory.
+5) Creates a second, independent tidy data set with the average of each variable for each activity and each subject. The tidy data frame was written to a file called ```analysis.txt``` in the working directory.
