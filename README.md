@@ -42,20 +42,20 @@ Their data was obtained from carrying out experiments with 30 participants perfo
 ### Transformations
 There are the next five parts:
 
-1. Merges the training and the test sets to create one data set.
+1) Merges the training and the test sets to create one data set.
 
 The data and labels were loaded into R. The identifier column names were given more appropriate labels such as "activity" and "participant". The vector measurement column names were renamed according to the features text file. These names were cleaned up by removed unneccessary brackets. I found that the resultant names descriptive yet readable and succint, Ex:
 
-- tGravityAcc.mean.X
-- tBodyAccJerkMag.mean
-- tBodyAcc-mean-X   
-- fBodyAcc-std-Z
+	- tGravityAcc.mean.X
+	- tBodyAccJerkMag.mean
+	- tBodyAcc-mean-X   
+	- fBodyAcc-std-Z
 
-2. Extracts only the measurements on the mean and standard deviation for each measurement.
+2) Extracts only the measurements on the mean and standard deviation for each measurement.
 
 The next step was to create a summarising data frame that displayed only mean and standard deviation data. The test and training data sets were merged into a single data frame and then filtered by searching the column names for "std" and "mean". These filtered columns were combined with the identifier columns to create a new data frame. 
 
-3. Uses descriptive activity names to name the activities in the data set
+3) Uses descriptive activity names to name the activities in the data set
 
 The numeric labels for activities were converted to descriptive ones using the map values function and activity_labels text file. They were then tidied up by changing the characters to lower case and replacing underscores with spaces which produced the following labels.
 
@@ -66,6 +66,6 @@ The numeric labels for activities were converted to descriptive ones using the m
 	5. standing  
 	6. laying  
 
-4. Appropriately labels the data set with descriptive activity names.Then an independent tidy data frame was created using the aggretate function with the average of each variable for each activity and each subject. As a result of aggregating, new columns were made making some of the old ones unneccessary. The old ones were deleted and the new ones were renamed.
+4) Appropriately labels the data set with descriptive activity names.Then an independent tidy data frame was created using the aggretate function with the average of each variable for each activity and each subject. As a result of aggregating, new columns were made making some of the old ones unneccessary. The old ones were deleted and the new ones were renamed.
 
-5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. The tidy data frame was written to a file called "analysis.txt" in the working directory.
+5) Creates a second, independent tidy data set with the average of each variable for each activity and each subject. The tidy data frame was written to a file called "analysis.txt" in the working directory.
